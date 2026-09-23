@@ -187,3 +187,35 @@ details[open] .summary-plus { transform: rotate(45deg); }
   .explain-heading h2 { font-size: 20px; line-height: 1.4; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+/* Live recommendation results. */
+[hidden] { display: none !important; }
+.search-button:not(:disabled) { background: var(--purple); cursor: pointer; }
+.search-button:not(:disabled):hover { background: #5640bf; }
+.retry-button { display: block; margin: 12px auto 0; border: 1px solid var(--line); background: white; border-radius: 8px; padding: 10px; color: var(--purple); cursor: pointer; }
+.search-status { color: #635785; font-size: 12px; line-height: 1.6; }
+.search-status:empty { display: none; }
+.query-dna { background: #f0ecfc; color: #584889; padding: 14px; border-radius: 10px; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.funnel { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 20px 0; }
+.funnel li { flex: 1 0 54px; padding: 8px 5px; border: 1px solid var(--line); border-radius: 8px; text-align: center; }
+.funnel strong { display: block; color: var(--purple); font-size: 18px; }
+.funnel span { font-size: 9px; color: #666273; }
+.contractor-card { border: 1px solid var(--line); border-radius: 14px; background: white; padding: 18px; margin: 12px 0; }
+.contractor-heading { display: flex; align-items: center; gap: 12px; }
+.contractor-heading h3 { font-size: 16px; margin: 0; overflow-wrap: anywhere; }
+.contractor-price { font-size: 22px; font-weight: 650; margin: 16px 0 8px; }
+.contractor-meta, .score-label, .result-count { color: #6c667c; font-size: 12px; line-height: 1.7; }
+.result-details { border-top: 1px solid var(--line); margin-top: 14px; font-size: 12px; line-height: 1.7; }
+.result-details summary { color: var(--purple); gap: 12px; line-height: 1.6; }
+.result-details summary::after { content: '+'; flex-shrink: 0; }
+.result-details[open] > summary::after { content: '−'; }
+.result-details ul { padding-left: 20px; }
+.result-details li { margin: 8px 0; }
+.result-details .field-hint, .provenance { font-size: 11px; color: #716a7f; line-height: 1.8; }
+.rejection-list { max-height: 350px; overflow-y: auto; overflow-wrap: anywhere; }
+.rejection-list p { margin: 5px 0 15px; }
+.no-results { background: #f5f2fb; padding: 20px; border-radius: 12px; margin: 15px 0; }
+.no-results h3 { font-size: 17px; }
+.no-results p { color: #6c667c; line-height: 1.8; font-size: 13px; }
+.results-footnote { margin-top: 20px; }
+.form-panel { align-self: start; }
