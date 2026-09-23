@@ -3,14 +3,80 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EventDNA</title>
+    <meta name="theme-color" content="#f6f6fa">
+    <meta name="description" content="EventDNA — подбор event-подрядчиков Казахстана с понятным объяснением каждого решения.">
+    <title>EventDNA — ваше событие начинается здесь</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
   </head>
   <body>
-    <main>
-      <h1>EventDNA</h1>
-      <p>Интерфейс подбора подрядчиков появится на этапе H.</p>
+    <a class="skip-link" href="#event-form">Перейти к параметрам мероприятия</a>
+    <header class="header">
+      <a class="brand" href="./index.html" aria-label="EventDNA — главная">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>event<span class="brand-accent">dna</span><span class="brand-period">.</span></span>
+      </a>
+      <nav aria-label="Основная навигация">
+        <a class="nav-link active" href="#event-form" aria-current="page">Подбор подрядчиков</a>
+        <a class="nav-link" href="#how-it-works">Как это работает <span aria-hidden="true">↗</span></a>
+      </nav>
+      <span class="location"><span aria-hidden="true">◉</span> Сделано для событий в Казахстане</span>
+    </header>
+
+    <main class="page">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <div class="eyebrow"><span class="tiny-line"></span> У КАЖДОГО СОБЫТИЯ СВОЯ ДНК</div>
+          <h1 id="page-title">Ваше событие.<br>Ваши <span>люди.</span></h1>
+          <p class="intro-copy">Расскажите о планах — найдём до трёх подходящих подрядчиков<br class="desktop-break"> и объясним, почему именно они.</p>
+        </div>
+        <div class="intro-note"><span class="note-star" aria-hidden="true">✳</span><p>Меньше поиска.<br><strong>Больше уверенности в выборе.</strong></p></div>
+      </section>
+
+      <div class="workspace">
+        <section class="form-panel" aria-labelledby="form-title">
+          <div class="panel-heading"><span class="step-number">01</span><div><h2 id="form-title">Соберём ваше событие</h2><p>Начнём с самого важного</p></div><span class="heading-dots" aria-hidden="true">•••</span></div>
+          <form id="event-form" aria-describedby="preview-note">
+            <div class="field-pair">
+              <div class="field"><label for="city">Город <span aria-hidden="true">*</span></label><select id="city" name="city" required><option value="" selected disabled>Выберите город</option><option>Алматы</option><option>Астана</option><option>Шымкент</option></select></div>
+              <div class="field"><label for="date">Дата <span aria-hidden="true">*</span></label><input id="date" name="date" type="date" required></div>
+            </div>
+            <div class="field"><label for="event-format">Что отмечаем? <span aria-hidden="true">*</span></label><select id="event-format" name="event_format" required><option value="" selected disabled>Выберите формат мероприятия</option><option value="свадьба">Свадьба</option><option value="той">Той</option><option value="корпоратив">Корпоратив</option></select></div>
+            <div class="field"><label for="category">Кого ищем? <span aria-hidden="true">*</span></label><select id="category" name="category" required><option value="" selected disabled>Выберите категорию</option><option>Фотограф</option><option>Видеограф</option><option>Ведущий</option></select></div>
+            <div class="field budget-field"><label for="budget">Бюджет на подрядчика <span aria-hidden="true">*</span></label><div class="input-with-unit"><input id="budget" name="budget" type="number" min="0" step="1000" placeholder="Например, 400 000" required aria-describedby="budget-hint"><span aria-hidden="true">₸</span></div><p class="field-hint" id="budget-hint">Максимальная сумма в тенге</p></div>
+            <details class="extra-options"><summary><span><span class="options-icon" aria-hidden="true">☷</span> Дополнительные пожелания</span><span class="summary-plus" aria-hidden="true">+</span></summary><div class="field-pair extra-fields"><div class="field"><label for="duration">Длительность, ч</label><input id="duration" name="duration_hours" type="number" min="0.5" step="0.5" placeholder="Например, 8"></div><div class="field"><label for="language">Язык</label><select id="language" name="language"><option value="">Не важен</option><option value="русский">Русский</option><option value="казахский">Казахский</option></select></div></div></details>
+            <button class="search-button" type="button" disabled aria-describedby="preview-note">Найти моих подрядчиков <span aria-hidden="true">↗</span></button>
+            <p class="preview-note" id="preview-note"><span class="preview-dot" aria-hidden="true"></span> Предпросмотр интерфейса. Поиск ещё не подключён; варианты полей демонстрационные.</p>
+          </form>
+        </section>
+
+        <section class="results-panel" aria-labelledby="results-title">
+          <div class="results-heading"><div class="section-label"><span class="step-number">02</span><h2 id="results-title">Ваш идеальный состав</h2></div><span class="subtle-pill">До 3 совпадений</span></div>
+          <div class="empty-state">
+            <div class="match-illustration" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-dot dot-one"></div><div class="orbit-dot dot-two"></div>
+              <div class="mini-card card-back"><span class="avatar"></span><span class="card-line"></span><span class="card-line short"></span></div>
+              <div class="mini-card card-front"><span class="card-spark">✳</span><span class="avatar avatar-main"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" fill="currentColor"/><path d="M9 33c0-8 5-12 11-12s11 4 11 12" fill="currentColor"/></svg></span><span class="card-line"></span><span class="card-line short"></span><span class="match-check">✓</span></div>
+              <span class="floating-label">Совпадение по делу <span>✓</span></span>
+            </div>
+            <span class="empty-eyebrow">ХОРОШИЙ ВЫБОР НАЧИНАЕТСЯ С ДЕТАЛЕЙ</span>
+            <h3>Здесь встретятся ваши планы<br>и подходящие люди</h3>
+            <p>Укажите параметры мероприятия слева.<br>Подбор учтёт город, дату, формат и ваш бюджет.</p>
+            <div class="criteria-tags" aria-label="Условия подбора"><span><span aria-hidden="true">⌖</span> Ваш город</span><span><span aria-hidden="true">▦</span> Ваша дата</span><span><span aria-hidden="true">₸</span> Ваш бюджет</span></div>
+          </div>
+          <div class="results-footnote"><span class="info-symbol" aria-hidden="true">i</span><p>Подходят только двое? Покажем двоих.<br><strong>Каждая рекомендация должна отвечать вашим условиям.</strong></p></div>
+        </section>
+      </div>
+
+      <section class="explain-section" id="how-it-works" aria-labelledby="explain-title">
+        <div class="explain-heading"><div><span class="eyebrow">ПОНЯТНЫЙ ВЫБОР НА КАЖДОМ ШАГЕ</span><h2 id="explain-title">За каждой рекомендацией — причина.</h2></div><span class="explain-caption">Данные. Условия. Объяснения.</span></div>
+        <div class="feature-grid">
+          <article class="feature"><span class="feature-icon why-this" aria-hidden="true">◎</span><div><span class="feature-kicker">WHY THIS</span><h3>Почему именно они?</h3><p>Конкретные совпадения с вашим запросом — от бюджета до продолжительности.</p></div></article>
+          <article class="feature"><span class="feature-icon why-not" aria-hidden="true">≠</span><div><span class="feature-kicker">WHY NOT</span><h3>А почему не остальные?</h3><p>Прозрачные причины исключения. Будет видно, какое условие не подошло.</p></div></article>
+          <article class="feature"><span class="feature-icon what-if" aria-hidden="true">↗</span><div><span class="feature-kicker">WHAT IF <span class="soon">Позже</span></span><h3>А если изменить планы?</h3><p>Другая дата или бюджет — и новый расчёт подходящих вариантов.</p></div></article>
+        </div>
+      </section>
+      <footer class="footer"><span>eventdna. <span class="footer-divider">/</span> У каждого события свой состав.</span><span>Создаём события с осознанным выбором <span aria-hidden="true">✳</span></span></footer>
     </main>
   </body>
 </html>
