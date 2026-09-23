@@ -1,0 +1,2 @@
+# Stage A uses only the Python standard library.
+# API dependencies will be added at stage G.
