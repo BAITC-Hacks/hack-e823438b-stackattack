@@ -1,5 +1,5 @@
-"""Project entry point; server startup will be added at stage G."""
-
+"""Run the local API and frontend: python run.py."""
+import uvicorn
 
 if __name__ == "__main__":
-    print("EventDNA: API ещё не реализован. Тесты: python3 -m unittest discover -s tests -v")
+    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000)
