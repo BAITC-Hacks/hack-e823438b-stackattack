@@ -49,7 +49,9 @@ class RecommendationTests(unittest.TestCase):
     def test_what_if_reruns_budget_date_and_duration(self):
         items = [contractor(id="busy", busy_dates=(date(2026, 11, 14),)), contractor(id="price", price_from_kzt=Decimal(500000)), contractor(id="short", max_hours=Decimal(6)), contractor(id="tomorrow_busy", busy_dates=(date(2026, 11, 15),))]
         r = build_what_if(items, query())
-        budget, day, duration = r["scenarios"]
+        budget = next(s for s in r["scenarios"] if s["changes"].get("budget") == 500000)
+        day = next(s for s in r["scenarios"] if s["changes"].get("date") == date(2026, 11, 15))
+        duration = next(s for s in r["scenarios"] if s["changes"].get("duration_hours") == 6)
         self.assertEqual(budget["added_ids"], ["price"])
         self.assertEqual(day["added_ids"], ["busy"])
         self.assertEqual(day["removed_ids"], ["tomorrow_busy"])

@@ -4,7 +4,7 @@ STAGES = ("category", "city", "event_format", "availability", "budget", "duratio
 
 
 def normalized(value):
-    return value.strip().casefold()
+    return " ".join(value.casefold().split())
 
 
 def contains(values, target):
